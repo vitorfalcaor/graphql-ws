@@ -309,6 +309,7 @@
                         const payload = typeof connectionParams === 'function'
                             ? await connectionParams()
                             : connectionParams;
+                        console.log("Sending initial Message");
                         socket.send(stringifyMessage(payload
                             ? {
                                 type: exports.MessageType.ConnectionInit,
@@ -357,6 +358,7 @@
                         }
                         if (acknowledged)
                             return; // already connected and acknowledged
+                        console.log("SENDING ACK");
                         if (message.type !== exports.MessageType.ConnectionAck)
                             throw new Error(`First message cannot be of type ${message.type}`);
                         clearTimeout(connectionAckTimeout);

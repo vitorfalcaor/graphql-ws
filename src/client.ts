@@ -611,6 +611,7 @@ export function createClient(options: ClientOptions): Client {
                 typeof connectionParams === 'function'
                   ? await connectionParams()
                   : connectionParams;
+              console.log("Sending initial Message");
               socket.send(
                 stringifyMessage<MessageType.ConnectionInit>(
                   payload
@@ -676,7 +677,7 @@ export function createClient(options: ClientOptions): Client {
                 return; // ping and pongs can be received whenever
               }
               if (acknowledged) return; // already connected and acknowledged
-
+              console.log("SENDING ACK");
               if (message.type !== MessageType.ConnectionAck)
                 throw new Error(
                   `First message cannot be of type ${message.type}`,
