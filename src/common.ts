@@ -86,7 +86,7 @@ export enum MessageType {
   Ping = 'ping', // bidirectional
   Pong = 'pong', /// bidirectional
 
-  Subscribe = 'subscribe', // Client -> Server
+  Subscribe = 'start', // Client -> Server
   Next = 'next', // Server -> Client
   Error = 'error', // Server -> Client
   Complete = 'complete', // bidirectional
